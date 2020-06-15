@@ -55,7 +55,7 @@ namespace Challenge.Infra.Mappings
         }
         private void Relationship(EntityTypeBuilder<Bank> builder)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

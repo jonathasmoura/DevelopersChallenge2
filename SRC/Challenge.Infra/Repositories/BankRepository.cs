@@ -11,9 +11,14 @@ namespace Challenge.Infra.Repositories
     public class BankRepository : IBankRepository
     {
         private readonly BaseContext _context;
+        public BankRepository(BaseContext context)
+        {
+            _context = context;
+        }
         public void Create(Bank bank)
         {
             _context.Banks.Add(bank);
+
         }
 
         public IEnumerable<Bank> GetAll()
