@@ -23,16 +23,19 @@ namespace Challenge.Domain.CommandsHandlers.BankAccountCommandsHandlers
             command.Validate();
             if (command.Invalid)
                 return new CommandResults(false, "Ops, não foi possível cadastrar seu registro.", command.Notifications);
-            var acc = _bankAccountRepository.GetById(command.Id);
+            //var acc = _bankAccountRepository.GetById(command.Id);
 
-            if (_bankAccountRepository.AccountExists(acc.Id))
-                return new CommandResults(false, "Não é possível realizar o cadastro!", command);
 
             var bank = _bankRepository.GetById(command.BankId);
             var accountCreate = new BankAccount(
                 command.AccountType,
                 bank.Id,
                 command.Agency);
+           // var acc = _bankAccountRepository.GetById(accountCreate.Id);
+
+
+            if (_bankAccountRepository.AccountExists(accountCreate.Id))
+                return new CommandResults(false, "Não é possível realizar o cadastro!", command);
 
             AddNotifications(accountCreate.Notifications);
             if (Invalid)
@@ -40,7 +43,7 @@ namespace Challenge.Domain.CommandsHandlers.BankAccountCommandsHandlers
             _bankAccountRepository.Create(accountCreate);
             _bankAccountRepository.Save();
 
-            return new CommandResults(true, "Conta registrada com sucesso!!!", command);
+            return new CommandResults(true, "Conta registrada com sucesso!!!", accountCreate);
         }
     }
 }

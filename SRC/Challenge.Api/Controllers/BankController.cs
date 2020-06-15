@@ -20,7 +20,7 @@ namespace Challenge.Api.Controllers
         }
         [Route("")]
         [HttpPost]
-        public CommandResults CreateMarca([FromBody] CreateBankCommand command, [FromServices] BankCommandHandler handler)
+        public CommandResults CreateBank([FromBody] CreateBankCommand command, [FromServices] BankCommandHandler handler)
         {
             return (CommandResults)handler.Handle(command);
         }

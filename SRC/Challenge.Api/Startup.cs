@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Challenge.Domain;
+using Challenge.Domain.CommandsHandlers.BankAccountCommandsHandlers;
 using Challenge.Domain.CommandsHandlers.BankCommandsHandlers;
 using Challenge.Infra.Contexts;
 using Challenge.Infra.Repositories;
@@ -43,7 +44,8 @@ namespace Challenge.Api
             services.AddScoped<BaseContext, BaseContext>();
             services.AddTransient<IBankRepository, BankRepository>();
             services.AddTransient<BankCommandHandler, BankCommandHandler>();
-
+            services.AddTransient<IBankAccountRepository, BankAccountRepository>();
+            services.AddTransient<BankAccountCommandHandler, BankAccountCommandHandler>();
 
         }
 
