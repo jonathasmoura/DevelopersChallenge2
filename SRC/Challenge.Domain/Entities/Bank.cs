@@ -8,8 +8,13 @@ namespace Challenge.Domain.Entities
     {
         public Bank() { }
 
-       
+        public Bank(string name)
+        {
+            BankName = name;
+        }
         public string BankName { get; set; }
-        public bool Active { get; set; }
+        public void Activate() => IsActive = true;
+        public void Inactivate() => IsActive = false;
+
     }
 }

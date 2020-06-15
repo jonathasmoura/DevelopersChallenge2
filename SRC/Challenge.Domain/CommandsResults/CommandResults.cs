@@ -1,8 +1,9 @@
 using System;
+using Challenge.Shared.Commands;
 
 namespace Challenge.Domain.CommandsResults
 {
-    public class CommandResults
+    public class CommandResults : ICommandResults
     {
         public CommandResults(){}
         public CommandResults(bool success, string message, object data)
