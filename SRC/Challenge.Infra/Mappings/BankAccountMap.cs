@@ -15,19 +15,36 @@ namespace Challenge.Infra.Mappings
             builder.ToTable(nameof(BankAccount));
         }
 
-        private void Relationship(EntityTypeBuilder<BankAccount> builder)
-        {
-            throw new NotImplementedException();
-        }
 
         private void Properties(EntityTypeBuilder<BankAccount> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(entity => entity.Id);
+            builder.Property(entity => entity.Id)
+            .HasColumnName(nameof(BankAccount.Id))
+            .IsRequired();
+
+            builder.Property(entity => entity.AccountType)
+            .HasColumnName(nameof(BankAccount.AccountType))
+            .IsRequired();
+
+            builder.Property(entity => entity.Agency)
+            .HasColumnName(nameof(BankAccount.Agency))
+            .IsRequired();
+
+            builder.Property(entity => entity.BankId)
+            .HasColumnName(nameof(BankAccount.BankId))
+            .IsRequired();
         }
 
         private void Ignores(EntityTypeBuilder<BankAccount> builder)
         {
-            throw new NotImplementedException();
+            builder.Ignore(entity => entity.Valid);
+        }
+        private void Relationship(EntityTypeBuilder<BankAccount> builder)
+        {
+            builder.HasOne(entity => entity.Bank)
+            .WithMany(x => x.Accounts)
+            .HasForeignKey(entity => entity.BankId);
         }
     }
 }

@@ -19,5 +19,7 @@ namespace Challenge.Domain.Entities
         public Guid BankId { get; set; }
         public string Agency { get; set; }
         public virtual Bank Bank { get; set; }
+        public void Activate() => IsActive = true;
+        public void Inactivate() => IsActive = false;
     }
 }

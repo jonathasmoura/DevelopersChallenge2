@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using Challenge.Shared.Entities;
 using Flunt.Notifications;
 
@@ -13,6 +14,7 @@ namespace Challenge.Domain.Entities
             BankName = name;
         }
         public string BankName { get; set; }
+        public ICollection<BankAccount> Accounts { get; set; }
         public void Activate() => IsActive = true;
         public void Inactivate() => IsActive = false;
 
