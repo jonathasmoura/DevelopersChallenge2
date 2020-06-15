@@ -8,6 +8,7 @@ namespace Challenge.Domain
     {
         void Create(Bank bank);
         IEnumerable<Bank> GetAll();
+        Bank GetById(Guid id);
         void Save();
 
     }

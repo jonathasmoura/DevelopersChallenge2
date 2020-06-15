@@ -28,6 +28,13 @@ namespace Challenge.Infra.Repositories
             return all;
         }
 
+        public Bank GetById(Guid id)
+        {
+            var bk = _context.Banks
+            .FirstOrDefault(x => x.Id == id);
+            return bk;
+        }
+
         public void Save()
         {
             _context.SaveChanges();

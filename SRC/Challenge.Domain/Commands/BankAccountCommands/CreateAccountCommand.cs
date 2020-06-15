@@ -8,6 +8,7 @@ namespace Challenge.Domain.Commands.BankAccountCommands
     public class CreateAccountCommand : Notifiable, ICommand
     {
         public CreateAccountCommand() { }
+        public Guid Id { get; set; }
         public Guid BankId { get; set; }
         public string Agency { get; set; }
         public EAcountType AccountType { get; set; }
