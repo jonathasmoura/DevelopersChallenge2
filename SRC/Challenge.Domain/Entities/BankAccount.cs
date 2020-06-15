@@ -1,8 +1,10 @@
 using Challenge.Domain.Enums;
+using Challenge.Shared.Entities;
+using Flunt.Notifications;
 
 namespace Challenge.Domain.Entities
 {
-    public class BankAccount
+    public class BankAccount : Entity
     {
         public BankAccount(){}
         public BankAccount(EAcountType accountType, int bankId, string agency)

@@ -19,9 +19,7 @@ namespace Challenge.Infra.Repositories
         public IEnumerable<Bank> GetAll()
         {
             var all = _context.Banks
-            .AsNoTracking()
-            .Where(x => x.BankId != 0)
-            .OrderBy(x => x.BankName);
+            .ToList();
             return all;
         }
 

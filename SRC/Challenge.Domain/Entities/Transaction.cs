@@ -1,13 +1,14 @@
 using System;
 using Challenge.Domain.Enums;
+using Challenge.Shared.Entities;
 
 namespace Challenge.Domain.Entities
 {
-    public class Transaction
+    public class Transaction : Entity
     {
-        public Transaction(int id, ETransactionType transctionType, DateTime transactionDate, long checkNum, double transactionValue, string description)
+        public Transaction(ETransactionType transctionType, DateTime transactionDate, long checkNum, double transactionValue, string description)
         {
-            Id = id;
+            
             TransctionType = transctionType;
             TransactionDate = transactionDate;
             CheckNum = checkNum;
@@ -15,7 +16,6 @@ namespace Challenge.Domain.Entities
             Description = description;
         }
 
-        public int Id { get; set; }
         public ETransactionType TransctionType { get; set; }
         public DateTime TransactionDate { get; set; }
         public long CheckNum { get; set; }

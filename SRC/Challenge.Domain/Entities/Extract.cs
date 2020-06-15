@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using Challenge.Shared.Entities;
+using Flunt.Notifications;
 
 namespace Challenge.Domain.Entities
 {
-    public class Extract
+    public class Extract : Entity
     {
         private readonly IList<Transaction> _transactions;
         public Extract(){}
