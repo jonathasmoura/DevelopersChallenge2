@@ -1,5 +1,3 @@
-using System;
-
 namespace Challenge.Domain.Enums
 {
     public enum EAcountType
