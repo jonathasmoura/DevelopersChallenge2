@@ -8,7 +8,10 @@ namespace Challenge.Domain.Commands.BankCommands
     public class CreateBankCommand : Notifiable, ICommand
     {
         public CreateBankCommand() { }
-        public CreateBankCommand(string name) { Name = name; }
+        public CreateBankCommand(string name)
+        {
+            Name = name;
+        }
         public string Name { get; set; }
         public void Validate()
         {

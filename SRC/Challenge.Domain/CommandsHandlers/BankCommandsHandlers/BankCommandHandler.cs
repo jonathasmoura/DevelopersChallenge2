@@ -27,6 +27,7 @@ namespace Challenge.Domain.CommandsHandlers.BankCommandsHandlers
                 if(Invalid)
                 return new CommandResults(false, "Ops, não foi possível cadastrar seu registro!", command);
                 _bankRepository.Create(bk);
+                _bankRepository.Save();
                 
                 return new CommandResults(true, "Banco registrado com sucesso!", bk);
         }
